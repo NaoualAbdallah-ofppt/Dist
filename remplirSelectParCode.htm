@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <table>
+        <tr><td>
+            <select id="lstPays">
+                <option>Choisir un pays</option>
+                    </select>
+        </td><td><label>Fournir un nouveau pays</label></td>
+        <td><input type="text" id="txtPays"></td>
+    <td><input type="button" value="Ajouter" onclick="ajouterPays()"/>
+        </td></tr> 
+    </table>
+    
+   
+</body>
+<script>
+    var tPays = ["Maroc","Espagne","Egypte","Canada","Chine","France"]
+    /*
+    pour i=0 à 10 faire
+    ...
+    fin pour
+    */
+    var lst=document.getElementById("lstPays")
+    var txt=document.getElementById("txtPays")
+    
+
+    for (var i=0;i<tPays.length;i++)
+    {
+    lst.innerHTML=lst.innerHTML + "<option>" + tPays[i] + "</option>"
+    
+    }
+
+    function ajouterPays()
+    {
+        if (!rechercher(txt.value))
+            {lst.innerHTML=lst.innerHTML + "<option>" + txt.value + "</option>"}
+        else
+            {alert("existe")}
+    }
+    function rechercher(pays)
+    {
+        for (var i=0;i<lst.options.length;i++)
+    {
+        if (lst.options[i].innerText.toLowerCase()==pays.toLowerCase())
+        {
+            return true
+        }
+    
+    }
+    return false
+    }
+    </script>   
+</html>
